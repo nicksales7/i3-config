@@ -59,7 +59,7 @@ bindsym $mod+t exec i3-sensible-terminal
 bindsym $mod+b exec firefox
 
 # start file manager
-bindsym $mod+m exec thunar
+bindsym $mod+m exec nautilus
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -203,7 +203,14 @@ bar {
 }
 
 # Make monitor main display on left
-exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --rate 74.97 --left-of eDP-1 --primary
+exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 74.97 --left-of eDP --primary
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+
+# Dark mode
+exec --no-startup-id /usr/libexec/gsd-xsettings
+
+# Accel
+exec --no-startup-id xinput set-prop "MX Anywhere 3S Mouse" "libinput Accel Profile Enabled" 0, 1
+exec --no-startup-id xinput set-prop "Cooler Master Technology Inc. MM720 Gaming Mouse" "libinput Accel Profile Enabled" 0, 1
