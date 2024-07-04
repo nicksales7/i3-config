@@ -1,0 +1,41 @@
+# i3blocks config
+
+[volume]
+command=amixer get Master | awk -F'[][]' '/Left:/ { print $2 }'
+interval=1
+color=#88b090
+
+[wireless]
+command=iw dev wlp3s0 link | awk '/SSID/ { essid=$2 } /signal/ { signal=$2 " " $3 }  /tx bitrate/ { br=$3 " " $4 } END { print "W: (ESSID: " essid ", Bit Rate: " br ")" }'
+interval=5
+color=#88b090
+
+#[ethernet]
+#command=ip -o -4 addr show eth0 | awk '{print "E: " $4}'
+#interval=5
+#color=#88b090
+
+[disk]
+command=df -h / | awk '/\// {print $4}'
+interval=30
+color=#88b090
+
+[battery]
+command=acpi -b | awk '{print $3 " " $4}' | sed 's/,//'
+interval=30
+color=#88b090
+
+[cpu_temperature]
+command=sensors | awk '/^temp1:/{print $2}'
+interval=5
+color=#88b090
+
+[memory]
+command=free -h | awk '/^Mem/ {print $3 "/" $2}'
+interval=10
+color=#88b090
+
+[tztime]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+color=#88b090
