@@ -27,7 +27,12 @@ color=#88b090
 
 [cpu_temperature]
 command=sensors | awk '/^temp1:/{print $2}'
-interval=5
+interval=1
+color=#88b090
+
+[gpu_temperature]
+command=nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+interval=1
 color=#88b090
 
 [memory]
