@@ -197,3 +197,6 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # Dark mode
 exec --no-startup-id /usr/libexec/gsd-xsettings
+
+# Keyboard setup
+exec_always --no-startup-id ~/.config/i3/keyboard_setup.sh
